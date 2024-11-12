@@ -1,33 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Great+Vibes&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #2596be;
+  --primary-hover:#76b5c5;
+  --secondary: #E2E8F0;
+  --accent: #d3c9b1;
+  --background: #F7FAFC;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+   /** --background: #0a0a0a;
+    --foreground: #ededed; **/
   }
 }
 
 html,
 body {
+  font-family: "Chau Philomene One", sans-serif;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+  background-color: var(--background);
+  font-family: "Chau Philomene One", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* app/globals.css */
+
+.header {
+  display: flex;
+  position: fixed;
+  z-index: 100; 
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: transparent;/* Update to your color */
+  color: var(--accent);
+  backdrop-filter: blur(5px);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  
+}
+
+.logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: scale(1.2);
+  color: var(--accent-color); /* Add a hover effect color */
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.sign-in-button {
+  font-family: "Chau Philomene One", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: solid;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sign-in-button:hover {
+  background-color: var(--accent); /* Update with a darker shade */
+  color: var(--primary);
+  border-color: var(--accent);
+  transform: scale(1.1);
+  text-shadow: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);;
+  
+}
+
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Great Vibes", cursive;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  display: 'flex';
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 a {
@@ -38,5 +126,100 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+    scroll-behavior: smooth;
   }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links on mobile */
+  }
+
+  .header-buttons {
+    display: none; /* Hide buttons on mobile */
+  }
+
+  .menu-toggle {
+    display: block; /* Show a hamburger icon instead */
+  }
+}
+
+/* Style for the menu icon */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Adjust based on header height */
+  right: 0;
+  background-color: var(--primary-color);
+  width: 100%;
+  text-align: center;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+}
+
+/* src/app/globals.css */
+.large-text {
+  font-size: 4rem;
+}
+
+.medium-text {
+  font-size: 1.5rem;
+}
+
+/* src/app/globals.css */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:var(--secondary);
+  text-align: center;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/hero6.png'); /* Add your image URL here */
+  background-size: cover; /* Ensure the image covers the entire hero section */
+  background-position: center;
+  z-index: -1; /* Keeps the image behind the content */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Ensures the text appears above the image */
+  font-size: 1.5rem;
+  padding: 0 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 0;
 }
